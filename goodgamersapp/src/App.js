@@ -4,27 +4,6 @@ import {Genres} from './DropDowns.js'
 
 function App() {
 
-  // function generateGenres() {
-  //   this.genGenres = new Genres();
-  // }
-  // function generateDecades() {
-    
-  // }
-  // function generateYears() {
-    
-  // }
-  // function generateCompanies() {
-    
-  // }
-  // function generateArtStyles() {
-    
-  // }
-  // function generateGenres() {
-    
-  // }
-  // function generateGenres() {
-    
-  // }
   
   return (
     <div className="App">
