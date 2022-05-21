@@ -1,22 +1,56 @@
-import logo from './logo.svg';
+import logo from './logo.PNG';
 import './App.css';
+import {Genres} from './DropDowns.js'
 
 function App() {
+
+  // function generateGenres() {
+  //   this.genGenres = new Genres();
+  // }
+  // function generateDecades() {
+    
+  // }
+  // function generateYears() {
+    
+  // }
+  // function generateCompanies() {
+    
+  // }
+  // function generateArtStyles() {
+    
+  // }
+  // function generateGenres() {
+    
+  // }
+  // function generateGenres() {
+    
+  // }
+  
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Welcome to the Good Gamers database!
         </p>
-        <a
+        <p>
+          Our goal is to provide you with the best selection of video titles.
+          Please search for your favorite video game preferences
+        </p>
+        <input type="text" />
+        <p>
+          Additionally, you can use our drop down menus to search specific categories
+        </p>
+        {/* <script type="text/javascript" src="./Genres.js"></script> */}
+        <Genres/>
+        {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
       </header>
     </div>
   );
