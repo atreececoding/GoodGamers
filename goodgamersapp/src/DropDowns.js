@@ -42,11 +42,11 @@ class Genres extends Component {
                         }}
                         >
                             <button buttonId="sandbox">SandBox</button>
-                            <button>Action</button>
-                            <button>Sports</button>
-                            <button>MMO</button>
-                            <button>RPG</button>
-                            <button>Fantasy</button>
+                            <button buttonId="action">Action</button>
+                            <button buttonId="sports">Sports</button>
+                            <button buttonId="mmo">MMO</button>
+                            <button buttonId="rpg">RPG</button>
+                            <button buttonId="fantasy"> Fantasy</button>
                         </div>
                     )
                     :(
@@ -99,12 +99,12 @@ class Companies extends Component {
                             this.dropdownMenu = element;
                         }}
                         >
-                            <button>Blizzard</button>
-                            <button>Nintendo</button>
-                            <button>Bethesda</button>
-                            <button>Ubisoft</button>
-                            <button>Microsoft</button>
-                            <button>Rockstar Games</button>
+                            <button buttonId="blizzard">Blizzard</button>
+                            <button buttonId="nintendo">Nintendo</button>
+                            <button buttonId="bethesda">Bethesda</button>
+                            <button buttonId="ubisoft">Ubisoft</button>
+                            <button buttonId="microsoft">Microsoft</button>
+                            <button buttonId="rockstar games">Rockstar Games</button>
                         </div>
                     )
                     :(
@@ -157,13 +157,13 @@ class Decades extends Component {
                             this.dropdownMenu = element;
                         }}
                         >
-                            <button>1960</button>
-                            <button>1970</button>
-                            <button>1980</button>
-                            <button>1990</button>
-                            <button>2000</button>
-                            <button>2010</button>
-                            <button>2020</button>
+                            <button buttonId="1960">1960</button>
+                            <button buttonId="1970">1970</button>
+                            <button buttonId="1980">1980</button>
+                            <button buttonId="1990">1990</button>
+                            <button buttonId="2000">2000</button>
+                            <button buttonId="2010">2010</button>
+                            <button buttonId="2020">2020</button>
                         </div>
                     )
                     :(
@@ -216,12 +216,12 @@ class ArtStyles extends Component {
                             this.dropdownMenu = element;
                         }}
                         >
-                            <button>Pixel</button>
-                            <button>Abstract</button>
-                            <button>Boxed</button>
-                            <button>Undefined</button>
-                            <button>3D</button>
-                            <button>Cartoon</button>
+                            <button buttonId="pixel">Pixel</button>
+                            <button buttonId="abstract">Abstract</button>
+                            <button buttonId="boxed">Boxed</button>
+                            <button buttonId="undefined">Undefined</button>
+                            <button buttonId="3d">3D</button>
+                            <button buttonId="cartoon">Cartoon</button>
                         </div>
                     )
                     :(
@@ -274,20 +274,20 @@ class Platforms extends Component {
                             this.dropdownMenu = element;
                         }}
                         >
-                            <button>Xbox</button>
-                            <button>Xbox360</button>
-                            <button>Xbox1</button>
-                            <button>Xbox SeriesX</button>
+                            <button buttonId="xbox">Xbox</button>
+                            <button buttonId="xbox 360">Xbox360</button>
+                            <button buttonId="xbox1">Xbox1</button>
+                            <button buttonId="xbox seriesx">Xbox SeriesX</button>
                             {/* <button>Playstation</button> */}
-                            <button>Playstation3</button>
-                            <button>Playstation4</button>
+                            <button buttonId="playstation3">Playstation3</button>
+                            <button buttonId="playstation4">Playstation4</button>
                             
-                            <button>Nintendo WII</button>
-                            <button>Nintendo Switch</button>
+                            <button buttonId="nintendo wii">Nintendo WII</button>
+                            <button buttonId="nintendo switch">Nintendo Switch</button>
                             
-                            <button>Gameboy</button>
-                            <button>Gameboy Advance</button>
-                            <button>Gameboy Color</button>
+                            <button buttonId="gameboy">Gameboy</button>
+                            <button buttonId="gameboy advance">Gameboy Advance</button>
+                            <button buttonId="gameboy color">Gameboy Color</button>
                            
                         </div>
                     )
@@ -341,14 +341,14 @@ class PriceRange extends Component {
                             this.dropdownMenu = element;
                         }}
                         >
-                            <button>0-10</button>
-                            <button>10-20</button>
-                            <button>20-30</button>
-                            <button>30-40</button>
-                            <button>40-50</button>
-                            <button>50-60</button>
-                            <button>60-70</button>
-                            <button>Unreasonable</button>
+                            <button buttonId="10-20">0-10</button>
+                            <button buttonId="10-20">10-20</button>
+                            <button buttonId="20-30">20-30</button>
+                            <button buttonId="30-40">30-40</button>
+                            <button buttonId="40-50">40-50</button>
+                            <button buttonId="50-60">50-60</button>
+                            <button buttonId="60-70">60-70</button>
+                            <button buttonId="unreasonable">Unreasonable</button>
                         </div>
                     )
                     :(
