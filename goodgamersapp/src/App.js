@@ -1,6 +1,6 @@
 import logo from './logo.PNG';
 import './App.css';
-import {Genres} from './DropDowns.js'
+import {Genres, Companies, Decades, ArtStyles, Platforms, PriceRange} from './DropDowns.js'
 
 function App() {
 
@@ -22,6 +22,11 @@ function App() {
         </p>
         {/* <script type="text/javascript" src="./Genres.js"></script> */}
         <Genres/>
+        <Companies/>
+        <Decades/>
+        <ArtStyles/>
+        <Platforms/>
+        <PriceRange/>
         {/* <a
           className="App-link"
           href="https://reactjs.org"
