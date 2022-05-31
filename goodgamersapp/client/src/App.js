@@ -1,7 +1,7 @@
 import logo from './logo.PNG';
 import './App.css';
-import {Genres, Companies, Decades, ArtStyles, Platforms, PriceRange} from './DropDowns.js'
-import {SearchResults} from './Searchresults.js';
+import {SearchPage} from './SearchPage.js';
+import {SearchButtons} from './SearchButtons.js';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
@@ -35,42 +35,25 @@ useEffect(() => {
         <p>
           Our goal is to provide you with the best selection of video titles!
         </p>
-        {/* <script type="text/javascript" src="./Genres.js"></script> */}
-        
-        
-      </header>
-
-      <body className="App-body">
-      Please search for your favorite video game title
-      </body>
-      <body className="App-search">
-      <input type="text" />
-      <Router>
+        <p>
+        Please search for your favorite video game title
+        </p>
+        <div className="App-body">
+        <Router>
+      <button>
+          <Link to="/SearchPage">Basic search</Link>
+        </button> 
+        {' '}
         <button>
-          <Link to="/Searchresults">search</Link>
+          <Link to="/SearchButtons">Advanced Search</Link>
         </button> 
         <Routes>
-          <Route exact path = "/Searchresults" element = {<SearchResults/>}> </Route>
+          <Route exact path = "/SearchPage" element = {<SearchPage/>}> </Route>
+          <Route exact path = "/SearchButtons" element = {<SearchButtons/>}> </Route>
         </Routes>  
       </Router>
-      
-      {/* /* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */ }
-      
-      </body>
-
-      <body className="App-buttons">
-        <p>
-          Additionally, you can use our drop down menus to search specific categories
-        </p>
-      <Genres/> <Companies/> <Decades/> <ArtStyles/> <Platforms/><PriceRange/>
-      </body>
+      </div>
+      </header>
     </div>
   );
 }

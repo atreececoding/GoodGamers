@@ -1,6 +1,6 @@
 //import React, {Component} from 'react';
 import logo from './logo.PNG';
-import './Searchresults.css';
+import './App.css';
 
 function SearchResults () {
     return (
