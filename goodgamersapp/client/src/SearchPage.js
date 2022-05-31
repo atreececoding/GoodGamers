@@ -1,5 +1,3 @@
-//import React, {Component} from 'react';
-import logo from './logo.PNG';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 

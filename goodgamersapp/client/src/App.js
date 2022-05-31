@@ -2,6 +2,7 @@ import logo from './logo.PNG';
 import './App.css';
 import {SearchPage} from './SearchPage.js';
 import {SearchButtons} from './SearchButtons.js';
+import { SearchResults } from './Searchresults.js';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import Axios from 'axios';
@@ -50,6 +51,7 @@ useEffect(() => {
         <Routes>
           <Route exact path = "/SearchPage" element = {<SearchPage/>}> </Route>
           <Route exact path = "/SearchButtons" element = {<SearchButtons/>}> </Route>
+          <Route exact path = "/Searchresults" element = {<SearchResults/>}> </Route>
         </Routes>  
       </Router>
       </div>
