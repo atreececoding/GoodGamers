@@ -19,9 +19,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // make query to database
 app.get("/api/get", (req, res) => {
-    const sqlSelect = "SELECT * FROM games ;"
+    //const sqlSelect = "SELECT * FROM games ;"
     // I think here we can have a logic structure to make different calls depending
     // on the type of query we want to do 
+
+var sqlSelect;
+
+    if (req.query.nintendo == true) {
+            sqlSelect = "SELECT * FROM games ;"
+    } else {
+        sqlSelect = "SELECT * FROM companies ;"
+    }
+
     db.query(sqlSelect, (err, result) => {
         // this sends the result to the front end 
         res.send(result);
