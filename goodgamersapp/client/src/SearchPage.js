@@ -1,6 +1,5 @@
-//import React, {Component} from 'react';
-import logo from './logo.PNG';
 import './App.css';
+import {app} from "./App.js";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function SearchPage () {
