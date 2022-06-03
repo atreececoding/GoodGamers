@@ -24,16 +24,18 @@ app.get("/api/get", (req, res) => {
     // on the type of query we want to do 
 
 var sqlSelect;
+var badInput;
 
     if (req.query.nintendo == true) {
-            sqlSelect = "SELECT * FROM games ;"
+            sqlSelect = "SELECT * FROM games ;" + connection.escape(badInput);
     } else {
-        sqlSelect = "SELECT * FROM companies ;"
+        sqlSelect = "SELECT * FROM companies ;" + connection.escape(badInput);
     }
 
     db.query(sqlSelect, (err, result) => {
         // this sends the result to the front end 
-        res.send(result);
+        if(err) throw error;
+        else res.send(result);
     });
 
 });
