@@ -9,26 +9,6 @@ import Axios from 'axios';
 
 function App() {
 
-  // this sends the result from the backend to console. I think we can redirect it wherever
-// useEffect(() => {
-//   Axios.get('http://localhost:3001/api/get').then((response) => {
-//     console.log(response.data)
-//   })
-// }, [])
-
-
-  
-function makeQuery() {
-  Axios.get('http://localhost:3001/api/get/?', {
-    params: {
-      rockstar: true,
-      nintendo: false
-    }
-  }).then((response) => {
-    console.log(response.data)
-  })
-}
-
   return (
     <div className="App">
       <header className="App-header">
@@ -44,7 +24,7 @@ function makeQuery() {
         </p>
         <div className="App-body">
         <Router>
-      <button onClick={makeQuery}>
+      <button>
           <Link to="/SearchPage">Basic search</Link>
         </button> 
         {' '}

@@ -1,4 +1,17 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
+
+// make a query from the DB. Response.data is an array containing the query results
+function makeQuery() {
+    Axios.get('http://localhost:3001/api/get/?', {
+      params: {
+        rockstar: true,
+        nintendo: false
+      }
+    }).then((response) => {
+      console.log(response.data)
+    })
+  }
 
 
 class Genres extends Component {
@@ -44,7 +57,7 @@ class Genres extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="sandbox">SandBox</button>
+                                <button onClick="" buttonId="sandbox">SandBox</button>
                                 <button buttonId="action">Action</button>
                                 <button buttonId="sports">Sports</button>
                                 <button buttonId="mmo">MMO</button>
