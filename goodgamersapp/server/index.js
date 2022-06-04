@@ -26,10 +26,10 @@ app.get("/api/get", (req, res) => {
 var sqlSelect;
 var badInput;
 
-    if (req.query.nintendo == true) {
-            sqlSelect = "SELECT * FROM games ;" + connection.escape(badInput);
+    if (req.query.nintendo && req.query.nineteenEighty && req.query.ten) {
+            sqlSelect = "SELECT DISTINCT name, exactprice, releaseDate FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID;"
     } else {
-        sqlSelect = "SELECT * FROM companies ;" + connection.escape(badInput);
+        sqlSelect = "SELECT * FROM games"
     }
 
     db.query(sqlSelect, (err, result) => {

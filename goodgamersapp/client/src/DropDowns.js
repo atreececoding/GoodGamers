@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-// make a query from the DB. Response.data is an array containing the query results
+// make a query to the DB. Response.data is an array containing the query results
 function makeQuery() {
     Axios.get('http://localhost:3001/api/get/?', {
       params: {
-        rockstar: true,
-        nintendo: false
+        nintendo,
+        rockstar,
+        battle,
+        nineteenEighty,
+        ten,
+        rpg,
+        ps3,
+        ps4
       }
     }).then((response) => {
       console.log(response.data)
     })
   }
 
+  var nintendo = false;
+  var rockstar = false
+  var battle = false;
+  var nineteenEighty = false;
+  var ten = false;
+  var rpg = false;
+  var ps3 = false;
+  var ps4 = false;
 
 class Genres extends Component {
     constructor() {
@@ -22,7 +36,6 @@ class Genres extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        //this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -34,13 +47,6 @@ class Genres extends Component {
         }
     }
 
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -57,12 +63,19 @@ class Genres extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button onClick="" buttonId="sandbox">SandBox</button>
-                                <button buttonId="action">Action</button>
-                                <button buttonId="sports">Sports</button>
-                                <button buttonId="mmo">MMO</button>
-                                <button buttonId="rpg">RPG</button>
-                                <button buttonId="fantasy"> Fantasy</button>
+                                <button onClick="" buttonid="sandbox">SandBox</button>
+                                <button buttonid="action">Action</button>
+                                <button onClick={function(e) {
+                                    battle = !battle;
+                                    console.log(battle);          
+                                    }}>Battle Royale</button>
+                                <button buttonid="sports">Sports</button>
+                                <button buttonid="mmo">MMO</button>
+                                <button onClick={function(e) {
+                                    rpg = !rpg;
+                                    console.log('rpg ', rpg);          
+                                    }}>RPG</button>
+                                <button buttonid="fantasy"> Fantasy</button>
                             </div>
                         )
                         : (
@@ -82,7 +95,6 @@ class Companies extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -94,13 +106,6 @@ class Companies extends Component {
         }
     }
 
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -117,12 +122,20 @@ class Companies extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="blizzard">Blizzard</button>
-                                <button buttonId="nintendo">Nintendo</button>
-                                <button buttonId="bethesda">Bethesda</button>
-                                <button buttonId="ubisoft">Ubisoft</button>
-                                <button buttonId="microsoft">Microsoft</button>
-                                <button buttonId="rockstar games">Rockstar Games</button>
+                                <button buttonid="blizzard">Blizzard</button>
+                                <button onClick={function(e) {
+                                    nintendo = !nintendo;
+                                    console.log('nintendo ', nintendo);          
+         
+                                    }}>Nintendo</button>
+                                <button buttonid="bethesda">Bethesda</button>
+                                <button buttonid="ubisoft">Ubisoft</button>
+                                <button buttonid="microsoft">Microsoft</button>
+                                <button onClick={function(e) {
+                                    rockstar = !rockstar;
+                                    console.log('rockstar ', rockstar);          
+         
+                                    }} >Rockstar Games</button>
                             </div>
                         )
                         : (
@@ -142,7 +155,6 @@ class Decades extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -153,14 +165,6 @@ class Decades extends Component {
             this.setState({showMenu : false})
         }
     }
-
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -177,13 +181,16 @@ class Decades extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="1960">1960</button>
-                                <button buttonId="1970">1970</button>
-                                <button buttonId="1980">1980</button>
-                                <button buttonId="1990">1990</button>
-                                <button buttonId="2000">2000</button>
-                                <button buttonId="2010">2010</button>
-                                <button buttonId="2020">2020</button>
+                                <button buttonid="1960">1960</button>
+                                <button buttonid="1970">1970</button>
+                                <button onClick={function(e) {
+                                    nineteenEighty = !nineteenEighty;
+                                    console.log('1980 ', nineteenEighty);          
+                                    }}>1980</button>
+                                <button buttonid="1990">1990</button>
+                                <button buttonid="2000">2000</button>
+                                <button buttonid="2010">2010</button>
+                                <button buttonid="2020">2020</button>
                             </div>
                         )
                         : (
@@ -203,7 +210,6 @@ class ArtStyles extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -214,14 +220,6 @@ class ArtStyles extends Component {
             this.setState({showMenu : false})
         }
     }
-
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -238,12 +236,12 @@ class ArtStyles extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="pixel">Pixel</button>
-                                <button buttonId="abstract">Abstract</button>
-                                <button buttonId="boxed">Boxed</button>
-                                <button buttonId="undefined">Undefined</button>
-                                <button buttonId="3d">3D</button>
-                                <button buttonId="cartoon">Cartoon</button>
+                                <button buttonid="pixel">Pixel</button>
+                                <button buttonid="abstract">Abstract</button>
+                                <button buttonid="boxed">Boxed</button>
+                                <button buttonid="undefined">Undefined</button>
+                                <button buttonid="3d">3D</button>
+                                <button buttonid="cartoon">Cartoon</button>
                             </div>
                         )
                         : (
@@ -263,7 +261,6 @@ class Platforms extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -274,14 +271,6 @@ class Platforms extends Component {
             this.setState({showMenu : false})
         }
     }
-
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -298,20 +287,26 @@ class Platforms extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="xbox">Xbox</button>
-                                <button buttonId="xbox 360">Xbox360</button>
-                                <button buttonId="xbox1">Xbox1</button>
-                                <button buttonId="xbox seriesx">Xbox SeriesX</button>
-                                {/* <button>Playstation</button> */}
-                                <button buttonId="playstation3">Playstation3</button>
-                                <button buttonId="playstation4">Playstation4</button>
+                                <button buttonid="xbox">Xbox</button>
+                                <button buttonid="xbox 360">Xbox360</button>
+                                <button buttonid="xbox1">Xbox1</button>
+                                <button buttonid="xbox seriesx">Xbox SeriesX</button>
+                                <button onClick={function(e) {
+                                    ps3 = !ps3;
+                                    console.log('ps3 ', ps3);          
+          
+                                    }}>Playstation3</button>
+                                <button onClick={function(e) {
+                                    ps4 = !ps4;
+                                    console.log('ps4 ', ps4);          
+                                    }}>Playstation4</button>
 
-                                <button buttonId="nintendo wii">Nintendo WII</button>
-                                <button buttonId="nintendo switch">Nintendo Switch</button>
+                                <button buttonid="nintendo wii">Nintendo WII</button>
+                                <button buttonid="nintendo switch">Nintendo Switch</button>
 
-                                <button buttonId="gameboy">Gameboy</button>
-                                <button buttonId="gameboy advance">Gameboy Advance</button>
-                                <button buttonId="gameboy color">Gameboy Color</button>
+                                <button buttonid="gameboy">Gameboy</button>
+                                <button buttonid="gameboy advance">Gameboy Advance</button>
+                                <button buttonid="gameboy color">Gameboy Color</button>
 
                             </div>
                         )
@@ -332,7 +327,6 @@ class PriceRange extends Component {
             showMenu: false,
         };
         this.showMenu = this.showMenu.bind(this);
-        // this.closeMenu = this.closeMenu.bind(this);
     }
     showMenu(event) {
         event.preventDefault();
@@ -343,14 +337,6 @@ class PriceRange extends Component {
             this.setState({showMenu : false})
         }
     }
-
-    // closeMenu(event) {
-    //     if (!this.dropdownMenu.contains(event.target)) {
-    //         this.setState({ showMenu: false }, () => {
-    //             document.removeEventListener('click', this.closeMenu);
-    //         });
-    //     }
-    // }
 
     render() {
         return (
@@ -367,14 +353,17 @@ class PriceRange extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button buttonId="10-20">0-10</button>
-                                <button buttonId="10-20">10-20</button>
-                                <button buttonId="20-30">20-30</button>
-                                <button buttonId="30-40">30-40</button>
-                                <button buttonId="40-50">40-50</button>
-                                <button buttonId="50-60">50-60</button>
-                                <button buttonId="60-70">60-70</button>
-                                <button buttonId="unreasonable">Unreasonable</button>
+                                <button >0-10</button>
+                                <button onClick={function(e) {
+                                    ten = !ten;
+                                    console.log('ten ', ten);          
+                                    }}>10-20</button>
+                                <button buttonid="20-30">20-30</button>
+                                <button buttonid="30-40">30-40</button>
+                                <button buttonid="40-50">40-50</button>
+                                <button buttonid="50-60">50-60</button>
+                                <button buttonid="60-70">60-70</button>
+                                <button buttonid="unreasonable">Unreasonable</button>
                             </div>
                         )
                         : (
@@ -387,4 +376,4 @@ class PriceRange extends Component {
 }
 
 
-export { Genres, Companies, Decades, ArtStyles, Platforms, PriceRange }
+export { Genres, Companies, Decades, ArtStyles, Platforms, PriceRange, makeQuery }
