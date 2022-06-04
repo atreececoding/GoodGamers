@@ -3,6 +3,7 @@ import Axios from 'axios';
 
 // make a query to the DB. Response.data is an array containing the query results
 function makeQuery() {
+   // input = document.getElementById('searchBar').value
     Axios.get('http://localhost:3001/api/get/?', {
       params: {
         nintendo,
@@ -10,21 +11,31 @@ function makeQuery() {
         battle,
         nineteenEighty,
         ten,
-        rpg,
+        action,
         ps3,
-        ps4
+        ps4,
+     //   input
       }
     }).then((response) => {
-      console.log(response.data)
+        nintendo = false;
+        rockstar = false;
+        battle = false;
+        nineteenEighty = false;
+        ten = false;
+        action = false;
+        ps3 = false;
+        ps4 = false;
+        console.log(response.data)
     })
   }
 
+  // var input = 'empty'
   var nintendo = false;
   var rockstar = false
   var battle = false;
   var nineteenEighty = false;
   var ten = false;
-  var rpg = false;
+  var action = false;
   var ps3 = false;
   var ps4 = false;
 
@@ -63,18 +74,18 @@ class Genres extends Component {
                                     this.dropdownMenu = element;
                                 }}
                             >
-                                <button onClick="" buttonid="sandbox">SandBox</button>
-                                <button buttonid="action">Action</button>
+                                <button>SandBox</button>
+                                <button onClick={function(e) {
+                                    action = !action;
+                                    console.log('action', action);          
+                                    }}>Action</button>
                                 <button onClick={function(e) {
                                     battle = !battle;
                                     console.log(battle);          
                                     }}>Battle Royale</button>
                                 <button buttonid="sports">Sports</button>
                                 <button buttonid="mmo">MMO</button>
-                                <button onClick={function(e) {
-                                    rpg = !rpg;
-                                    console.log('rpg ', rpg);          
-                                    }}>RPG</button>
+                                <button>RPG</button>
                                 <button buttonid="fantasy"> Fantasy</button>
                             </div>
                         )

@@ -26,10 +26,15 @@ app.get("/api/get", (req, res) => {
 var sqlSelect;
 var badInput;
 
-    if (req.query.nintendo && req.query.nineteenEighty && req.query.ten) {
-            sqlSelect = "SELECT DISTINCT name, exactprice, releaseDate FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID;"
-    } else {
-        sqlSelect = "SELECT * FROM games"
+console.log(req.query.input)
+
+    if (req.query.nintendo == 'true' && req.query.nineteenEighty == 'true' && req.query.ten == 'true') {
+        console.log(req.query.nintendo);
+        sqlSelect = "SELECT DISTINCT name, exactprice, releaseDate FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID AND pricerange = 10;"
+    } else if (req.query.rockstar = 'true' && req.query.action == 'true' && req.query.ps4 == 'true') {
+        sqlSelect = "SELECT name, genre, company FROM games, gamesByGenre, gamesByPlatform WHERE genre = 'action' AND company = 'Rockstar Games' AND platform = 'playstation 4' AND games.gameID = gamesByGenre.gameID AND games.gameID = gamesByPlatform.gameID;";
+    } else if (req.query.battle = 'true' && req.query.ps3 == 'true' && req.query.ps4 == 'true') {
+        sqlSelect = "SELECT DISTINCT name, genre FROM games, gamesByGenre, gamesByPlatform WHERE games.gameID = gamesByPlatform.gameID AND games.gameID = gamesByGenre.gameID AND genre = 'battle royale' AND platform = 'playstation 4' AND company = 'pubg'";
     }
 
     db.query(sqlSelect, (err, result) => {
