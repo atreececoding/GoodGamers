@@ -24,11 +24,12 @@ app.get("/api/get", (req, res) => {
     // on the type of query we want to do 
 
 var sqlSelect;
-var badInput;
 
 console.log(req.query.input)
-
-    if (req.query.nintendo == 'true' && req.query.nineteenEighty == 'true' && req.query.ten == 'true') {
+    if(req.query.gamename != null) {
+        console.log(req.query.gamename);
+        sqlSelect = "SELECT * FROM games WHERE gamename = " + req.query.gamename;
+    } else if (req.query.nintendo == 'true' && req.query.nineteenEighty == 'true' && req.query.ten == 'true') {
         console.log(req.query.nintendo);
         sqlSelect = "SELECT DISTINCT name, exactprice, releaseDate FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID AND pricerange = 10;"
     } else if (req.query.rockstar = 'true' && req.query.action == 'true' && req.query.ps4 == 'true') {
