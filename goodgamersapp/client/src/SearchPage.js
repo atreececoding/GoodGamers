@@ -12,13 +12,14 @@ function SearchPage () {
     };
 
     const generateQuery = () => {
+      console.log(gamename)
       Axios.get('http://localhost:3001/api/get/?', {
           params: {
             gamename: gamename
          //   input
           }
         }).then((response) => {
-           response = "got the name";
+           //response = "got the name";
            console.log(response.data);
         })
     }

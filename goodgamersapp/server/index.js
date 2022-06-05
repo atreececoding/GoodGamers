@@ -27,7 +27,7 @@ var sqlSelect;
 
 console.log(req.query.input)
     if(req.query.gamename != null) {
-        console.log(req.query.gamename);
+        //console.log(req.query.gamename);
         sqlSelect = "SELECT * FROM games WHERE name = '" + req.query.gamename + "';";
     } else if (req.query.nintendo == 'true' && req.query.nineteenEighty == 'true' && req.query.ten == 'true') {
         console.log(req.query.nintendo);
