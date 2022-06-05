@@ -4,9 +4,11 @@ import React, {useState} from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Axios from 'axios';
 
+var array = 0;
 
 function SearchPage () {
     const [gamename, setgame] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
     const handleChange = e => {
       setgame(e.target.value);
     };
@@ -20,7 +22,8 @@ function SearchPage () {
           }
         }).then((response) => {
            //response = "got the name";
-           console.log(response.data);
+           setSearchResults(response.data);
+           array = response.data;
         })
     }
 
@@ -39,4 +42,4 @@ function SearchPage () {
     );
 }
 
-export {SearchPage};
+export {SearchPage, array};
