@@ -24,7 +24,7 @@ app.get("/api/get", (req, res) => {
 var sqlSelect;
 
     if(req.query.gamename != null) {
-
+        db.escape(req.query.gamename);
         sqlSelect = 
         "SELECT name, company, exactPrice FROM games, sales WHERE games.gameID = sales.gameID AND games.name = '" + req.query.gamename + "';";
 
