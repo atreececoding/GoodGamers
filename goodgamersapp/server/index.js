@@ -19,23 +19,22 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // make query to database
 app.get("/api/get", (req, res) => {
-    //const sqlSelect = "SELECT * FROM games ;"
-    // I think here we can have a logic structure to make different calls depending
-    // on the type of query we want to do 
+    
 
 var sqlSelect;
 
-console.log(req.query.input)
     if(req.query.gamename != null) {
-        //console.log(req.query.gamename);
-        sqlSelect = "SELECT * FROM games WHERE name = '" + req.query.gamename + "';";
+
+        sqlSelect = 
+        "SELECT name, company, exactPrice FROM games, sales WHERE games.gameID = sales.gameID AND games.name = '" + req.query.gamename + "';";
+
+        //sqlSelect = "SELECT * FROM games WHERE name = '" + req.query.gamename + "';";
     } else if (req.query.nintendo == 'true' && req.query.nineteenEighty == 'true' && req.query.ten == 'true') {
-        console.log(req.query.nintendo);
-        sqlSelect = "SELECT DISTINCT name, exactprice, releaseDate FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID AND pricerange = 10;"
+        sqlSelect = "SELECT DISTINCT name, company, exactprice FROM games, dates, sales WHERE company = 'nintendo' AND releaseDecade = 1980 AND games.gameID = dates.gameID AND sales.gameID = games.gameID AND pricerange = 10;"
     } else if (req.query.rockstar = 'true' && req.query.action == 'true' && req.query.ps4 == 'true') {
-        sqlSelect = "SELECT name, genre, company FROM games, gamesByGenre, gamesByPlatform WHERE genre = 'action' AND company = 'Rockstar Games' AND platform = 'playstation 4' AND games.gameID = gamesByGenre.gameID AND games.gameID = gamesByPlatform.gameID;";
+        sqlSelect = "SELECT name, company, exactprice FROM games, gamesByGenre, gamesByPlatform, sales WHERE games.gameID = sales.gameID AND genre = 'action' AND company = 'Rockstar Games' AND platform = 'playstation 4' AND games.gameID = gamesByGenre.gameID AND games.gameID = gamesByPlatform.gameID;";
     } else if (req.query.battle = 'true' && req.query.ps3 == 'true' && req.query.ps4 == 'true') {
-        sqlSelect = "SELECT DISTINCT name, genre FROM games, gamesByGenre, gamesByPlatform WHERE games.gameID = gamesByPlatform.gameID AND games.gameID = gamesByGenre.gameID AND genre = 'battle royale' AND platform = 'playstation 4' AND company = 'pubg'";
+        sqlSelect = "SELECT DISTINCT name, company, exactprice FROM games, gamesByGenre, gamesByPlatform, sales WHERE games.gameID = sales.gameID AND games.gameID = gamesByPlatform.gameID AND games.gameID = gamesByGenre.gameID AND genre = 'battle royale' AND platform = 'playstation 4' AND company = 'pubg'";
     }
 
     db.query(sqlSelect, (err, result) => {

@@ -1,43 +1,61 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-// make a query to the DB. Response.data is an array containing the query results
-function makeQuery() {
-   // input = document.getElementById('searchBar').value
-    Axios.get('http://localhost:3001/api/get/?', {
-      params: {
-        nintendo,
-        rockstar,
-        battle,
-        nineteenEighty,
-        ten,
-        action,
-        ps3,
-        ps4,
-     //   input
-      }
-    }).then((response) => {
-        nintendo = false;
-        rockstar = false;
-        battle = false;
-        nineteenEighty = false;
-        ten = false;
-        action = false;
-        ps3 = false;
-        ps4 = false;
-        console.log(response.data)
-    })
-  }
+var statusOfButtons = {
+    nintendo: false,
+    rockstar: false,
+    battle: false,
+    nineteenEighty: false,
+    ten: false,
+    action: false,
+    ps3: false,
+    ps4: false
 
-  // var input = 'empty'
-  var nintendo = false;
-  var rockstar = false
-  var battle = false;
-  var nineteenEighty = false;
-  var ten = false;
-  var action = false;
-  var ps3 = false;
-  var ps4 = false;
+}
+
+function getParams() {
+    return statusOfButtons;
+}
+
+// make a query to the DB. Response.data is an array containing the query results
+// function makeQuery() {
+//     var output;
+//     Axios.get('http://localhost:3001/api/get/?', {
+//         params: {
+//             nintendo,
+//             rockstar,
+//             battle,
+//             nineteenEighty,
+//             ten,
+//             action,
+//             ps3,
+//             ps4,
+//         }
+//     }).then((response) => {
+//         nintendo = false;
+//         rockstar = false;
+//         battle = false;
+//         nineteenEighty = false;
+//         ten = false;
+//         action = false;
+//         ps3 = false;
+//         ps4 = false;
+//         output = response.data[0];
+//         console.log(output)
+//     })
+//     return output;
+// }
+
+statusOfButtons = {
+    nintendo: false,
+    rockstar: false,
+    battle: false,
+    nineteenEighty: false,
+    ten: false,
+    action: false,
+    ps3: false,
+    ps4: false
+}
 
 class Genres extends Component {
     constructor() {
@@ -54,7 +72,7 @@ class Genres extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -75,14 +93,14 @@ class Genres extends Component {
                                 }}
                             >
                                 <button>SandBox</button>
-                                <button onClick={function(e) {
-                                    action = !action;
-                                    console.log('action', action);          
-                                    }}>Action</button>
-                                <button onClick={function(e) {
-                                    battle = !battle;
-                                    console.log(battle);          
-                                    }}>Battle Royale</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.action = !statusOfButtons.action;
+                                    console.log('action', statusOfButtons.action);
+                                }}>Action</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.battle = !statusOfButtons.battle;
+                                    console.log('battle', statusOfButtons.battle);
+                                }}>Battle Royale</button>
                                 <button buttonid="sports">Sports</button>
                                 <button buttonid="mmo">MMO</button>
                                 <button>RPG</button>
@@ -113,7 +131,7 @@ class Companies extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -134,19 +152,19 @@ class Companies extends Component {
                                 }}
                             >
                                 <button buttonid="blizzard">Blizzard</button>
-                                <button onClick={function(e) {
-                                    nintendo = !nintendo;
-                                    console.log('nintendo ', nintendo);          
-         
-                                    }}>Nintendo</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.nintendo = !statusOfButtons.nintendo;
+                                    console.log('nintendo ', statusOfButtons.nintendo);
+
+                                }}>Nintendo</button>
                                 <button buttonid="bethesda">Bethesda</button>
                                 <button buttonid="ubisoft">Ubisoft</button>
                                 <button buttonid="microsoft">Microsoft</button>
-                                <button onClick={function(e) {
-                                    rockstar = !rockstar;
-                                    console.log('rockstar ', rockstar);          
-         
-                                    }} >Rockstar Games</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.rockstar = !statusOfButtons.rockstar;
+                                    console.log('rockstar ', statusOfButtons.rockstar);
+
+                                }} >Rockstar Games</button>
                             </div>
                         )
                         : (
@@ -173,7 +191,7 @@ class Decades extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -194,10 +212,10 @@ class Decades extends Component {
                             >
                                 <button buttonid="1960">1960</button>
                                 <button buttonid="1970">1970</button>
-                                <button onClick={function(e) {
-                                    nineteenEighty = !nineteenEighty;
-                                    console.log('1980 ', nineteenEighty);          
-                                    }}>1980</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.nineteenEighty = !statusOfButtons.nineteenEighty;
+                                    console.log('1980 ', statusOfButtons.nineteenEighty);
+                                }}>1980</button>
                                 <button buttonid="1990">1990</button>
                                 <button buttonid="2000">2000</button>
                                 <button buttonid="2010">2010</button>
@@ -228,7 +246,7 @@ class ArtStyles extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -279,7 +297,7 @@ class Platforms extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -302,15 +320,15 @@ class Platforms extends Component {
                                 <button buttonid="xbox 360">Xbox360</button>
                                 <button buttonid="xbox1">Xbox1</button>
                                 <button buttonid="xbox seriesx">Xbox SeriesX</button>
-                                <button onClick={function(e) {
-                                    ps3 = !ps3;
-                                    console.log('ps3 ', ps3);          
-          
-                                    }}>Playstation3</button>
-                                <button onClick={function(e) {
-                                    ps4 = !ps4;
-                                    console.log('ps4 ', ps4);          
-                                    }}>Playstation4</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.ps3 = !statusOfButtons.ps3;
+                                    console.log('ps3 ', statusOfButtons.ps3);
+
+                                }}>Playstation3</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.ps4 = !statusOfButtons.ps4;
+                                    console.log('ps4 ', statusOfButtons.ps4);
+                                }}>Playstation4</button>
 
                                 <button buttonid="nintendo wii">Nintendo WII</button>
                                 <button buttonid="nintendo switch">Nintendo Switch</button>
@@ -345,7 +363,7 @@ class PriceRange extends Component {
         if (this.state.showMenu === false) {
             this.setState({ showMenu: true })
         } else {
-            this.setState({showMenu : false})
+            this.setState({ showMenu: false })
         }
     }
 
@@ -365,10 +383,10 @@ class PriceRange extends Component {
                                 }}
                             >
                                 <button >0-10</button>
-                                <button onClick={function(e) {
-                                    ten = !ten;
-                                    console.log('ten ', ten);          
-                                    }}>10-20</button>
+                                <button onClick={function (e) {
+                                    statusOfButtons.ten = !statusOfButtons.ten;
+                                    console.log('ten ', statusOfButtons.ten);
+                                }}>10-20</button>
                                 <button buttonid="20-30">20-30</button>
                                 <button buttonid="30-40">30-40</button>
                                 <button buttonid="40-50">40-50</button>
@@ -387,4 +405,4 @@ class PriceRange extends Component {
 }
 
 
-export { Genres, Companies, Decades, ArtStyles, Platforms, PriceRange, makeQuery }
+export { Genres, Companies, Decades, ArtStyles, Platforms, PriceRange, getParams }
