@@ -1,13 +1,28 @@
+/**
+ * @authors Andrew & Dylan
+ * @version 6/8/2022
+ */
+
 import './App.css';
 //import {app} from "./App.js";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Axios from 'axios';
 
-
+/**
+ * stores the result object returned from the query to the database. 
+ */
 var result;
+
+/**
+ * stores the result object returned from the query to the database, but split into a more managable array. 
+ */
 var resultValues;
 
+/**
+ * Generates the component that is used as the /searchpage URL for the front end of the web app. 
+ * @returns an HTML div containing search results. 
+ */
 function SearchPage() {
   const [isLoading, setLoading] = useState(true);
   const [gamename, setgame] = useState("");
@@ -15,6 +30,10 @@ function SearchPage() {
     setgame(e.target.value);
   };
 
+  /**
+   * Calls the backend at the API URL /api/get, then stores the results returned from the
+   * query that is generated on the backend in the result and resultValues variables. 
+   */
   const generateQuery = () => {
     Axios.get('http://localhost:3001/api/get/?', {
       params: {
@@ -66,10 +85,6 @@ function SearchPage() {
       </>
     );
   }
-
-
-
-
 }
 
 export { SearchPage, result };
