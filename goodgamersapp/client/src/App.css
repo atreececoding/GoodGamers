@@ -1,0 +1,99 @@
+/*
+* @authors Andrew and Dylan
+* @version 1.0
+* The primary use of this file is to style everything that happens in the front end app.
+*/
+
+/* 
+*
+* This section styles the application itself to be center
+*
+*/
+.App {
+  text-align: center;
+}
+
+/* 
+*
+* Styles the logo at the top of the application on each page
+*
+*/
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+/* 
+*
+* Styles the main app components
+*
+*/
+.App-header {
+  background-color: #02000c; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* 
+*
+* Styles the search page
+*
+*/
+.App-search {
+  background-color: #02000c;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* 
+*
+* Styles all of the buttons page and drop downs
+*
+*/
+.App-buttons {
+  background-color: #02000c;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* 
+*
+* Styles the search button in the search page
+*
+*/
+.App-search {
+  background-color: #02000c;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/* 
+*
+* Styles each drop down button
+*
+*/
+searchButton {
+  background-color: #02000c;
+  color: white;
+}
+
