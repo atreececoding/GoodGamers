@@ -1,6 +1,15 @@
+/*
+*
+* @authors: Andrew and Dylan
+* @version: 1.0
+*
+*/
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+/*
+* instantiates the button parameters used for the backend.
+*/
 var statusOfButtons = {
     nintendo: false,
     rockstar: false,
@@ -13,39 +22,16 @@ var statusOfButtons = {
 
 }
 
+/*
+* returns the status of all the buttons for the backend.
+*/
 function getParams() {
     return statusOfButtons;
 }
 
-// make a query to the DB. Response.data is an array containing the query results
-// function makeQuery() {
-//     var output;
-//     Axios.get('http://localhost:3001/api/get/?', {
-//         params: {
-//             nintendo,
-//             rockstar,
-//             battle,
-//             nineteenEighty,
-//             ten,
-//             action,
-//             ps3,
-//             ps4,
-//         }
-//     }).then((response) => {
-//         nintendo = false;
-//         rockstar = false;
-//         battle = false;
-//         nineteenEighty = false;
-//         ten = false;
-//         action = false;
-//         ps3 = false;
-//         ps4 = false;
-//         output = response.data[0];
-//         console.log(output)
-//     })
-//     return output;
-// }
-
+/*
+* Determines the status of the buttons for the backend.
+*/
 statusOfButtons = {
     nintendo: false,
     rockstar: false,
@@ -57,6 +43,9 @@ statusOfButtons = {
     ps4: false
 }
 
+/*
+* This is the genres dropdown button class.
+*/
 class Genres extends Component {
     constructor() {
         super();
@@ -116,6 +105,9 @@ class Genres extends Component {
     }
 }
 
+/*
+* This is the companies dropdown button class.
+*/
 class Companies extends Component {
     constructor() {
         super();
@@ -176,6 +168,9 @@ class Companies extends Component {
     }
 }
 
+/*
+* This is the decades dropdown button class.
+*/
 class Decades extends Component {
     constructor() {
         super();
@@ -231,6 +226,9 @@ class Decades extends Component {
     }
 }
 
+/*
+* This is the artstyles dropdown button class.
+*/
 class ArtStyles extends Component {
     constructor() {
         super();
@@ -282,6 +280,9 @@ class ArtStyles extends Component {
     }
 }
 
+/*
+* This is the platforms dropdown button class.
+*/
 class Platforms extends Component {
     constructor() {
         super();
@@ -348,6 +349,9 @@ class Platforms extends Component {
     }
 }
 
+/*
+* This is the pricerange dropdown button class.
+*/
 class PriceRange extends Component {
     constructor() {
         super();

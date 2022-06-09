@@ -1,4 +1,9 @@
-//import React, {Component} from 'react';
+/*
+*
+* @authors: Andrew and Dylan
+* @version: 1.0
+*
+*/
 import logo from './logo.PNG';
 import React, { useState } from "react";
 import { Genres, Companies, Decades, ArtStyles, Platforms, PriceRange, getParams} from './DropDowns.js'
@@ -6,13 +11,25 @@ import './App.css';
 import Axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+/*
+* The result of the data returned from the backend.
+*/
 var result;
+
+/*
+* The variable used to extract the data from the result.
+*/
 var resultValues;
+
+/*
+* An object of the parameters used in the DropDowns file.
+*/
 var parameters;
 
-
-
-
+/*
+* This function creates the search buttons 
+* and connects them to the backend for database retrieval.
+*/
 function SearchButtons() {
   const [isLoading, setLoading] = useState(true);
 
@@ -71,5 +88,5 @@ function SearchButtons() {
     );
   }
 }
-// {resultValues[0]}, Made by: {resultValues[1]}, Sells for: {resultValues[2]}
+
 export { SearchButtons };

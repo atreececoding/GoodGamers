@@ -1,3 +1,9 @@
+/*
+*
+* @authors: Andrew and Dylan
+* @version: 1.0
+*
+*/
 import logo from './logo.PNG';
 import './App.css';
 import {SearchPage} from './SearchPage.js';
@@ -6,6 +12,12 @@ import { SearchResults } from './Searchresults.js';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 
+/*
+*
+* This function houses the main application including the routes to new pages,
+* logo, and home screen information.
+* 
+*/
 function App() {
 
   return (
